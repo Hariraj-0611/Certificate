@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificate - HADESCORE APEX</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background-color: #FFFFFF;
+            color: #1a1a1a;
+            width: 297mm;
+            height: 210mm;
+            padding: 15mm;
+            position: relative;
+        }
+        .cert-border {
+            border: 3px solid #0891b2;
+            outline: 2px solid #06b6d4;
+            outline-offset: -8px;
+            width: 100%;
+            height: 100%;
+            padding: 12mm 18mm;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        .registration-box, .iso-box {
+            font-size: 8px;
+            color: #64748b;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+        .iso-box {
+            text-align: right;
+        }
+        .registration-box span, .iso-box span {
+            color: #0f172a;
+            font-weight: 700;
+        }
+        .header-brand {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .brand-title {
+            font-size: 22px;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .brand-subtitle {
+            font-size: 9px;
+            font-weight: 700;
+            color: #06b6d4;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+        .cert-title-container {
+            text-align: center;
+            margin: 12px 0 8px 0;
+        }
+        .cert-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #06b6d4;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .certifies-text {
+            text-align: center;
+            font-size: 12px;
+            color: #475569;
+            margin: 12px 0 10px 0;
+            font-style: italic;
+            font-weight: 500;
+        }
+        .recipient-name {
+            text-align: center;
+            font-size: 34px;
+            font-weight: 900;
+            color: #0f172a;
+            margin: 10px 0 10px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Arial Black', 'Arial', sans-serif;
+        }
+        .completion-lead {
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.7;
+            color: #334155;
+            max-width: 90%;
+            margin: 0 auto 12px auto;
+            font-weight: 500;
+        }
+        .completion-lead strong {
+            color: #0f172a;
+            font-weight: 700;
+        }
+        .body-paragraph {
+            text-align: justify;
+            font-size: 10px;
+            line-height: 1.6;
+            color: #475569;
+            max-width: 95%;
+            margin: 0 auto 15px auto;
+        }
+        .footer-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 18px;
+            padding-top: 8px;
+        }
+        .signature-box {
+            text-align: center;
+            width: 170px;
+        }
+        .signature-line {
+            border-top: 2px solid #0f172a;
+            margin-top: 30px;
+            padding-top: 5px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        .signature-title {
+            font-size: 9px;
+            color: #64748b;
+            font-weight: 600;
+        }
+        .qr-section {
+            text-align: center;
+            width: 130px;
+        }
+        .qr-code-img {
+            width: 70px;
+            height: 70px;
+            display: block;
+            margin: 0 auto 5px auto;
+        }
+        .qr-label {
+            font-size: 8px;
+            font-weight: 700;
+            color: #0f172a;
+            text-transform: uppercase;
+        }
+        .cert-meta {
+            text-align: right;
+            font-size: 9px;
+            color: #334155;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+        .cert-meta strong {
+            color: #0f172a;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <div class="cert-border">
+        <div class="top-row">
+            <div class="registration-box">
+                UDYAM REGISTRATION NO.<br>
+                <span>UDYAM-TN-14-0089975</span>
+            </div>
+            <div class="iso-box">
+                ISO 21001:2018 Certificate No.<br>
+                <span>IN01233085</span>
+            </div>
+        </div>
+
+        <div class="header-brand">
+            <div class="brand-title">HADESCORE APEX & TECHNOLOGIES</div>
+            <div class="brand-subtitle">A BRANCH OF HADESCORE PRIVATE LIMITED</div>
+        </div>
+
+        <div class="cert-title-container">
+            <div class="cert-title">
+                {% if cert_type == 'course_completion' %}
+                CERTIFICATE OF COURSE COMPLETION
+                {% elif cert_type == 'internship' %}
+                CERTIFICATE OF INTERNSHIP COMPLETION
+                {% elif cert_type == 'campus_ambassador' %}
+                CERTIFICATE OF APPOINTMENT
+                {% elif cert_type == 'offer_letter' %}
+                INTERNSHIP OFFER LETTER
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="certifies-text">This is to certify that</div>
+
+        <div class="recipient-name">{{ name }}</div>
+
+        <div class="completion-lead">
+            {% if cert_type == 'course_completion' %}
+            has successfully completed the <strong>{{ domain }}</strong> course conducted by 
+            <strong>Hadescore APEX & Technologies</strong> from <strong>{{ start_date }}</strong> to <strong>{{ end_date }}</strong>.
+            {% elif cert_type == 'internship' %}
+            has successfully completed the <strong>{{ domain }}</strong> internship program at 
+            <strong>Hadescore APEX & Technologies</strong> from <strong>{{ start_date }}</strong> to <strong>{{ end_date }}</strong>.
+            {% elif cert_type == 'campus_ambassador' %}
+            has been officially appointed as a <strong>Brand Ambassador</strong> for 
+            <strong>Hadescore APEX & Technologies</strong> in the domain of <strong>{{ domain }}</strong> effective from <strong>{{ start_date }}</strong>.
+            {% elif cert_type == 'offer_letter' %}
+            has been selected for the <strong>{{ domain }}</strong> internship position at 
+            <strong>Hadescore APEX & Technologies</strong> starting from <strong>{{ start_date }}</strong> for a duration of <strong>{{ extra_field }}</strong>.
+            {% endif %}
+        </div>
+
+        <div class="body-paragraph">
+            {% if cert_type == 'campus_ambassador' %}
+            In recognition of your passion, influence, dedication, and commitment to excellence, we are delighted to officially appoint you as a Brand Ambassador of Hadescore APEX & TECHNOLOGIES. As a Brand Ambassador, you will represent and promote the values, vision, innovation, and products/services of Hadescore Private Limited. Your role will help inspire and connect individuals with our commitment to building a smarter, secure, innovative, and sustainable future.
+            {% else %}
+            During the program, the candidate actively participated in the training sessions, completed the required assessments and projects, and demonstrated dedication, commitment, and satisfactory performance. The candidate has acquired valuable theoretical knowledge and practical skills in the respective domain and has successfully fulfilled the requirements of the program.
+            {% endif %}
+        </div>
+
+        <div class="footer-section">
+            <div class="signature-box">
+                <div class="signature-line">Karthikeyan</div>
+                <div class="signature-title">Authorized Signatory</div>
+            </div>
+
+            <div class="qr-section">
+                <img src="{{ qr_path }}" alt="QR Verification" class="qr-code-img" />
+                <div class="qr-label">Scan to Verify</div>
+            </div>
+
+            <div class="cert-meta">
+                {% if cert_type != 'campus_ambassador' and cert_type != 'offer_letter' %}
+                Certificate No: <strong>{{ cert_id }}</strong><br>
+                {% endif %}
+                Issued on: <strong>{{ issue_date }}</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
